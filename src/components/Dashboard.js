@@ -8,13 +8,11 @@ const Dashboard = () => {
     const [balance, setBalance] = useState(null);
     const [showBalance, setShowBalance] = useState(false);
     
-    // Fallback logic: If localStorage is empty, show 'User' instead of 'UNDEFINED'
     const [userData, setUserData] = useState({
         username: localStorage.getItem('username') || 'User',
         accountNumber: localStorage.getItem('accountNumber') || 'Pending...'
     });
 
-    // Sync state with localStorage on mount (prevents the 'UNDEFINED' flash)
     useEffect(() => {
         const storedUser = localStorage.getItem('username');
         const storedAcc = localStorage.getItem('accountNumber');
